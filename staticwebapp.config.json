@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json.schemastore.org/staticwebapp.config.json",
+  "globalHeaders": {
+    "Content-Security-Policy": "frame-ancestors 'self' https://teams.microsoft.com https://*.teams.microsoft.com https://*.cloud.microsoft https://*.microsoft365.com;",
+    "X-Content-Type-Options": "nosniff"
+  },
+  "routes": [
+    {
+      "route": "/index.html",
+      "headers": {
+        "Cache-Control": "no-cache"
+      }
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/*.{png,jpg,gif,ico,svg}"]
+  },
+  "mimeTypes": {
+    ".json": "application/json",
+    ".html": "text/html"
+  },
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/index.html"
+    }
+  }
+}
